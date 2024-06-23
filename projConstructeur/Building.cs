@@ -6,43 +6,35 @@ using System.Threading.Tasks;
 
 namespace projConstructeur
 {
-    internal class Building
+    public class Building
     {
-        private int _floors;
-        private double _height;
+        double floors;// Le choix du type double vient que plus loin, il va falloir vers un rapport
+        double height;
 
         // Constructeur qui initialise le bâtiment avec le nombre d'étages et la hauteur
-        public Building(int floors, double height)
-        {
-            this._floors = floors;
-            this._height = height;
-        }
-        public Building(int floors) 
-        {
-            this._floors = floors;
-            this._height=3*this._floors;
+        public Building(double floors, double height)
+                {
+                    this.floors = floors;
+                    this.height = height;
+                }
+        public Building(double floors)  : this(floors,3*floors)
+                {
+                }
 
-        }
+        public double GetFloorCount()
+                {
+                    return floors;
+                }
 
-        public int Floors
-        {
-            get { return _floors; }
-            set { _floors = value; }
-        }
-
-        public double Size
-        {
-            get { return _height; }
-            set { _height = value; }
-        }
-        public int GetFloorMaxSize()
-        {
-            return (int)(_height/_floors);
+        
+         public double GetFloorMaxSize()
+            {
+            return height / floors;
         }
 
-        public double Height()
+        public double GetSize()
         {
-            return _height;
+            return height;
         }
     }
 }
